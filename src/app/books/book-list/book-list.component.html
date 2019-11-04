@@ -1,0 +1,29 @@
+<div style="text-align: center ;color: gold" class="col-md-12">
+  <h1>Book List</h1>
+</div>
+<table class="table" border="1">
+  <thead class="thead-light">
+  <div>
+    <a class="btn btn-primary" routerLink='create'><i class="fa fa-plus"></i></a>
+  </div>
+  <tr>
+    <th scope="col">STT</th>
+    <th scope="col">Name</th>
+    <th scope="col">Content</th>
+    <th scope="col">Read</th>
+    <th scope="col"></th>
+    <th scope="col"></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let book of books | paginate: {itemsPerPage:3 ,currentPage: p} let i= index">
+    <th scope="row">{{i +1}}</th>
+    <td>{{book.name}}</td>
+    <td>{{book.body}}</td>
+    <td>{{book.read}}</td>
+    <td><a class="btn btn-primary" [routerLink]="['/edit',book.id]"><i class="fa fa-edit"></i></a></td>
+    <td><button type="button" class="btn btn-danger" (click)="delete(book.id)"><i class="fa fa-trash"></i></button></td>
+  </tr>
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </tbody>
+</table>

@@ -1,0 +1,33 @@
+
+  <div style="text-align: center" class="col-md-12">
+    <h1>Edit Book</h1>
+  </div>
+  <form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+    <div class="col-md-8">
+      <div class="form-group row">
+        <label class="col-md-2 col-form-label">Name</label>
+        <div class="col-md-5">
+          <input class="form-control" type="text" formControlName="name">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-md-2 col-form-label">Content</label>
+        <div class="col-md-5">
+          <input class="form-control" type="text" formControlName="body">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-md-2 col-form-label">Status:</label>
+        <div class="col-md-2">
+        <select name="" id="" formControlName="read" class="form-control">
+          <option value="1">Read</option>
+          <option value="0">Not Read</option>
+        </select>
+        </div>
+      </div>
+      <div class="col-md-12 row mt-2">
+        <button class="btn btn-primary btn-sm">Submit</button>
+        <a class="btn btn-danger btn-sm ml-2" routerLink="/">Cancel</a>
+      </div>
+    </div>
+  </form>
